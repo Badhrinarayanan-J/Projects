@@ -2,7 +2,6 @@ pipeline {
     agent any
 
     stages {
-
         stage('Build') {
             steps {
                 echo 'Building app...'
@@ -17,7 +16,7 @@ pipeline {
 
         stage('Deploy') {
             steps {
-                sh 'cd python && bash deploy.sh'
+                echo 'Deploy step running...'
             }
         }
     }
