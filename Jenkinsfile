@@ -14,10 +14,22 @@ pipeline {
             }
         }
 
-        stage('Deploy') {
+        stage('Deploy to TEST') {
+            when {
+                branch 'test'
+            }
             steps {
-                echo 'Deploy step running...'
+                echo 'Deploying to TEST environment...'
+            }
+        }
+
+        stage('Deploy to PROD') {
+            when {
+                branch 'main'
+            }
+            steps {
+                echo 'Deploying to PROD environment...'
             }
         }
     }
-}
+} 
